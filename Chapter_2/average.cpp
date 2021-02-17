@@ -3,13 +3,13 @@
 const int max_elements = 5;
 
 template<typename T>
-T average(const T mynums[])
+T average(const T mynums)
 {
     T avg = 0;
     for(auto index = 0; index < max_elements; ++index) {
         avg += mynums[index];
     }
-    
+
     return avg/max_elements;
 }
 
