@@ -8,5 +8,7 @@ void foo(auto a)
 int main()
 {
     foo(100);
+    foo('a');
+    foo(22.2);
     return 0;
 }
