@@ -33,8 +33,10 @@ void MyStore::add_element(int elem)
         std::cout << "Increasing the store size" << std::endl;
         len = len + 100;
         int* temp = (int *)realloc(store, sizeof(int) * len);
-        store = temp;
-        store[curr_len++] = elem;
+        if (temp) {
+            store = temp;
+            store[curr_len++] = elem;
+        }
     }
 }
 
@@ -56,7 +58,9 @@ int main()
     s.add_element(22);
     s.add_element(1);
     s.add_element(50); // 6th element added
-    std::cout << std::fixed << std::setprecision(2) << s.average() << std::endl;
+    std::cout << std::fixed 
+              << std::setprecision(2) 
+              << s.average() << std::endl;
     return 0;
 }
 
