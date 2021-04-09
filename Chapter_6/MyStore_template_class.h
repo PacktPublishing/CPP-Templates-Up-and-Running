@@ -13,12 +13,20 @@ private:
     size_t len;
     size_t curr_len;
 public:
+    MyStore();
     explicit MyStore(size_t);
     MyStore<T>(const MyStore<T>&);
+    MyStore<T>& operator =(const MyStore<T>&);
     void add_element(T);
     double average();
     ~MyStore();
 };
+
+template<typename T>
+MyStore<T>::MyStore() : store(nullptr), len(0), curr_len(0)
+{
+    // this will create an empty object
+}
 
 template<typename T>
 MyStore<T>::MyStore(size_t len) : len(len), curr_len(0)
@@ -34,6 +42,23 @@ MyStore<T>::MyStore(const MyStore<T>& other)
     store = (T *) malloc(sizeof(T) * len);
     memset(store, 0, sizeof(T) * len);
     memcpy(store, other.store, len);
+}
+
+template<typename T>
+MyStore<T>& MyStore<T>::operator=(const MyStore<T>& other)
+{
+    if( this != &other) {
+        if(!store) {
+            len = other.len;
+            curr_len = other.curr_len;
+            store = (T *) malloc(sizeof(T) * len);
+            memset(store, 0, sizeof(T) * len);
+            memcpy(store, other.store, len);
+        } else {
+            std::cout << "Store not empty!" << std::endl;
+        }
+    }
+    return *this;
 }
 
 template<typename T>
