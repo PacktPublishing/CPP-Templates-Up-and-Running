@@ -2,6 +2,9 @@
 #define __MYSTORE_TEMPLATE_CLASS__
 #include <iostream>
 #include <iomanip>
+#include <iostream>
+#include <iomanip>
+#include <string.h>
 
 template<typename T>
 class MyStore {
@@ -11,6 +14,7 @@ private:
     size_t curr_len;
 public:
     explicit MyStore(size_t);
+    MyStore<T>(const MyStore<T>&);
     void add_element(T);
     double average();
     ~MyStore();
@@ -20,6 +24,16 @@ template<typename T>
 MyStore<T>::MyStore(size_t len) : len(len), curr_len(0)
 {
     store = (T *) malloc(sizeof(T) * len);
+}
+
+template<typename T>
+MyStore<T>::MyStore(const MyStore<T>& other)
+{
+    len = other.len;
+    curr_len = other.curr_len;
+    store = (T *) malloc(sizeof(T) * len);
+    memset(store, 0, sizeof(T) * len);
+    memcpy(store, other.store, len);
 }
 
 template<typename T>
@@ -39,7 +53,7 @@ void MyStore<T>::add_element(T elem)
         std::cout << "Increasing the store size" << std::endl;
         len = len + 100;
         T* temp = (T *)realloc(store, sizeof(T) * len);
-        if(temp) {
+                if(temp) {
             store = temp;
             store[curr_len++] = elem;
         }
