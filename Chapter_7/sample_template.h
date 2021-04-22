@@ -9,6 +9,8 @@ class MyTemplate {
         MyTemplate() = default;
         MyTemplate(T val);
         T get_val() const;
+        void print_val();
+        void print_welcome_message();
         ~MyTemplate() = default;
 };
 
@@ -23,6 +25,10 @@ T MyTemplate<T>::get_val() const
     return data;
 }
 
+template<typename T>
+void MyTemplate<T>::print_welcome_message()
+{
+    std::cout << "Welcome to Templates" << std::endl;
+}
 #endif 
-
 
