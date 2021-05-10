@@ -1,20 +1,8 @@
 #include <iostream>
-class Person {
-public:
-    Person() = delete;
-    Person(int, std::string);
-    ~Person() = default;
-    void set_age(int age);
-    void set_name(std::string name);
-    int get_age() const;
-    std::string get_name() const;
-private:
-    int age;
-    std::string name;
-};
-
+#include "person.h"
 Person::Person(int age, std::string name) : age(age), name(name)
-{}
+{
+}
 void Person::set_age(int age)
 {
     age = age;
