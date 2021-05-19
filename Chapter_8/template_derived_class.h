@@ -3,7 +3,6 @@ template<typename T>
 class Derived : public Base<T>
 {
 public:
-    using Base<T>::data;
     Derived(T x);
     void print_derived();
 private:
