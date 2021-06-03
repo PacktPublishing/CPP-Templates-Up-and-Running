@@ -1,6 +1,6 @@
 #include <iostream>
 template <typename T>
-int add(T x, T y)
+T add(T x, T y)
 {
     return x + y;
 }
