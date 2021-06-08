@@ -28,7 +28,7 @@ int main()
     len = 3;
     auto cptr = dynamic_allocator('C', len);
     for (size_t index = 0; index < len; ++index)
-        std::cout << cptr[index] << ;
+        std::cout << cptr[index] << std::endl;
 
     delete [] iptr;
     delete [] dptr;
