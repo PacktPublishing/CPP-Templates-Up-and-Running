@@ -13,6 +13,6 @@ void f()
 
 int main()
 {
-    f<ONE>();
+    f<1>();
     return 0;
 }
