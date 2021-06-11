@@ -1,10 +1,7 @@
 #include <iostream>
-
 class A {
 public:
     void welcome() {std::cout << "Hello World" << "\n";}
-private:
-
 };
 class A obj_A;
 
