@@ -1,14 +1,5 @@
 #include <iostream>
-void printEmployee()
-{
-}
-
-template<typename first, typename... rest>
-void printEmployee(first arg, rest... argPack)
-{
-    std::cout << arg;
-    printEmployee(argPack...);
-}
+#include "example_variadic.h"
 
 int main(void)
 {
@@ -17,4 +8,5 @@ int main(void)
                   "Job Title = ", "Sr. Editor PACKT", ", ",
                   "Salary = £", 800000.00,
                   "\n");
+    return 0;
 }
