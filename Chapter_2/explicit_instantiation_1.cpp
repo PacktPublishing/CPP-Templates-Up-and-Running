@@ -1,6 +1,6 @@
 #include<iostream>
 #include "explicit_instantiation.h"
-extern void foo();
+void foo();
 
 int main()
 {
