@@ -7,5 +7,4 @@ size_t size_of(T x)
 {
     return sizeof(x);
 }
-
 #endif
