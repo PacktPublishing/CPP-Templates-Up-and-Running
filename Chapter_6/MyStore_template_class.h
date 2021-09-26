@@ -31,7 +31,7 @@ MyStore<T>::MyStore() : store(nullptr), len(0), curr_len(0)
 template<typename T>
 MyStore<T>::MyStore(size_t len) : len(len), curr_len(0)
 {
-    store = (T *) malloc(sizeof(T) * len);
+    store = new T[len];
 }
 
 template<typename T>
@@ -39,7 +39,7 @@ MyStore<T>::MyStore(const MyStore<T>& other)
 {
     len = other.len;
     curr_len = other.curr_len;
-    store = (T *) malloc(sizeof(T) * len);
+    store = new T[len];
     memset(store, 0, sizeof(T) * len);
     memcpy(store, other.store, len);
 }
@@ -51,7 +51,7 @@ MyStore<T>& MyStore<T>::operator=(const MyStore<T>& other)
         if(!store) {
             len = other.len;
             curr_len = other.curr_len;
-            store = (T *) malloc(sizeof(T) * len);
+            store = new T[len];
             memset(store, 0, sizeof(T) * len);
             memcpy(store, other.store, len);
         } else {
@@ -64,8 +64,7 @@ MyStore<T>& MyStore<T>::operator=(const MyStore<T>& other)
 template<typename T>
 MyStore<T>::~MyStore()
 {
-    if(store)
-        free(store);
+    delete [] store;
 }
 
 template<typename T>
@@ -74,14 +73,7 @@ void MyStore<T>::add_element(T elem)
     if(curr_len < len) {
         store[curr_len++] = elem;
     } else {
-        std::cout << "Number of elements added exceeds the allocated size" << std::endl;
-        std::cout << "Increasing the store size" << std::endl;
-        len = len + 100;
-        T* temp = (T *)realloc(store, sizeof(T) * len);
-                if(temp) {
-            store = temp;
-            store[curr_len++] = elem;
-        }
+        std::cout << "Maximum size of the store reached." << std::endl;
     }
 }
 
