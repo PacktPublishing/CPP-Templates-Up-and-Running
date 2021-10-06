@@ -2,7 +2,7 @@
 template<typename T>
 T add(T& x, T& y)
 {
-    x = 60;
+    //x = 60;
     return x + y;
 }
 
