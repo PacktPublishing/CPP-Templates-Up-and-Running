@@ -2,6 +2,7 @@
 template<typename T>
 void process_array(const T store, size_t len)
 {
+    store = new int;
     for(size_t index = 0; index < len; ++index) {
         store[index] = 100;
     }

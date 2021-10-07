@@ -1,10 +1,9 @@
 #include <iostream>
 template<typename T>
-void set_value(const T var)
+void set_value(const T* var)
 {
-    var = new int;
     if(var) {
-        *var = 100;
+        //*var = 100;
     }
 }
 int main()
