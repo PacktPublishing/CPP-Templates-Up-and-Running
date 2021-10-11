@@ -1,16 +1,14 @@
 #include <iostream>
 template<typename T>
-T add(T& x, T& y)
+T demo(T& x, T& y)
 {
-    //x = 60;
-    return x + y;
+    // doing nothing 
+    // cannot modify x and y here as they are const qalified
 }
-
 int main()
 {
     const int a = 20;
     const int b = 30;
-    std::cout << add(a, b) << std::endl;
-
+    demo(a, b);
     return 0;
 }
