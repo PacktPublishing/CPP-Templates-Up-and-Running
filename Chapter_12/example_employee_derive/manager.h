@@ -3,8 +3,8 @@ class ManagerClass : public EmployeeClass
 {
 public: 
     ManagerClass();
-    void ManageEmployee();
-    void AllocateResource();
+    void ManageTeam();
+    void AllocateResources();
     void AllocateBudget();
     ~ManagerClass();
-}
+};
