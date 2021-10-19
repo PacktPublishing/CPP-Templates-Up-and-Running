@@ -8,17 +8,26 @@
 * the file COPYING.gpl-v3 for details.                                    *
 \*************************************************************************/
 
-#include <iostream>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 
-void foo(auto a)
+template<typename T>
+T max_elem_templ(const std::vector<T>& vec)
 {
-    std::cout << a << std::endl;
+    return *std::max_element(vec.begin(), vec.end(), std::less<T>());
 }
 
 int main()
 {
-    foo(100);
-    foo('a');
-    foo(22.2);
+    std::vector<int> myvector;
+    myvector.push_back(10);
+    myvector.push_back(120);
+    myvector.push_back(50);
+    myvector.push_back(1000);
+    myvector.push_back(30);
+
+    std::cout << max_elem_templ(myvector) << std::endl;
+
     return 0;
 }
