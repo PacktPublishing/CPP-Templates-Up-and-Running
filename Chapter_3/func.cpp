@@ -8,21 +8,7 @@
 * the file COPYING.gpl-v3 for details.                                    *
 \*************************************************************************/
 
-#include <iostream>
-enum myenum {
-    ONE = 1,
-    TWO = 2,
-    THREE =3
-};
-
-template <myenum val> //pointer to object
-void f()
+int foo(int x, int y)
 {
-   std::cout << val << std::endl;
-}
-
-int main()
-{
-    f<1>();
-    return 0;
+    return x + y;
 }
