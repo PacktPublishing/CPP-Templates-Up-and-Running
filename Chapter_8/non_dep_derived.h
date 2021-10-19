@@ -1,19 +1,29 @@
+/*************************************************************************\
+*                  Copyright (C) Vivek Bhadra, 2021.                      *
+*                                                                         *
+* This program is free software. You may use, modify, and redistribute it *
+* under the terms of the GNU General Public License as published by the   *
+* Free Software Foundation, either version 3 or (at your option) any      *
+* later version. This program is distributed without any warranty.  See   *
+* the file COPYING.gpl-v3 for details.                                    *
+\*************************************************************************/
+
 #include "non_dep_base.h"
 template<typename T>
-class Dep : public NonDep {
+class Derived : public NonDep {
 public:
-    Dep(T);
+    Derived(T);
     void print_val();
-    ~Dep();
+    ~Derived();
 private:
 
 };
 
 template<typename T>
-Dep<T>::Dep(T x) : NonDep(x) {}
+Derived<T>::Derived(T x) : NonDep(x) {}
 
 template<typename T>
-void Dep<T>::print_val() { std::cout << "val = " << val << std::endl;}
+void Derived<T>::print_val() { std::cout << "val = " << val << std::endl;}
 
 template<typename T>
-Dep<T>::~Dep() {}
+Derived<T>::~Derived() {}
